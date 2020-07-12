@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Zeke Note
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - zk
+scope: text.html.markdown.zekenote
+
+contexts:
+  main:
+    - include: Markdown.sublime-syntax
