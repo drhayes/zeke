@@ -11,3 +11,8 @@ class ZekeEventListener(sublime_plugin.EventListener):
       # 3. Set the 'is_zekenote' flag for our other commands and things.
       settings = view.settings()
       settings.set('is_zekenote', True)
+      if settings.get('zeke_to_the_end', False):
+        sel = view.sel()
+        sel.clear()
+        sel.add(sublime.Region(view.size(), view.size()))
+
