@@ -1,3 +1,4 @@
 [
-  { "caption": "Zeke: New Note", "command": "zeke_new_note" }
+  { "caption": "Zeke: New Note", "command": "zeke_new_note" },
+  { "caption": "Zeke: Find Note", "command": "zeke_find_note" },
 ]

@@ -3,6 +3,7 @@ import sublime
 import sublime_plugin
 from datetime import datetime
 import re
+from .zeke import notes_index
 
 def slugify(text):
   # re.sub(pattern, repl, string, count=0, flags=0)
@@ -23,9 +24,7 @@ class ZekeNewNoteCommand(sublime_plugin.WindowCommand):
     note_date_stamp = now.strftime('%Y%m%d%H%M%S')
     note_name = now.strftime('{0}-{1}.zk'.format(note_date_stamp, slugify(title)))
     # What path will this note live in eventually?
-    plugin_settings = sublime.load_settings('zeke.sublime-settings')
-    default_note_dir = plugin_settings.get('note_directory', '~/notes')
-    note_dir = os.path.expanduser(default_note_dir)
+    note_dir = notes_index.get_note_dir()
     # TODO: Handle case where that directory doesn't exist yet!
     note_full_path = os.path.abspath(os.path.join(note_dir, note_name))
     # Write some default content in there.
